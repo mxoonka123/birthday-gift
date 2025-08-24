@@ -1,83 +1,120 @@
 /* Глобальные стили */
 body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    /* Фон в стиле тетрадного листа */
+    background-color: #fdfdf2;
+    background-image: 
+        linear-gradient(rgba(224, 192, 203, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 192, 203, 0.4) 1px, transparent 1px);
+    background-size: 25px 25px;
     color: #333;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 20px 0; /* Убираем отступы по бокам */
 }
 
-/* Основной контейнер сайта */
-.container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* Основной блок, имитирующий страницу дневника */
+.diary-page {
     max-width: 900px;
-    width: 100%;
+    margin: 0 auto; /* Центрируем страницу */
+    padding: 30px;
     text-align: center;
 }
 
 h1 {
-    font-size: 3em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Выделение имени */
-.highlight {
-    color: #f5576c;
-}
-
-.intro-text {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-h2 {
-    margin-top: 40px;
-    border-bottom: 2px solid #f093fb;
-    display: inline-block;
-    padding-bottom: 5px;
+    font-family: 'Caveat', cursive; /* Применяем рукописный шрифт */
+    font-size: 4.5em; /* Увеличиваем размер */
+    color: #d63384; /* Розовый цвет */
     margin-bottom: 20px;
+}
+
+.highlight {
+    color: #333; /* Имя делаем контрастным */
 }
 
 /* Стили для аудиоплеера */
 audio {
     width: 100%;
-    max-width: 500px;
-    margin-top: 10px;
+    max-width: 400px;
+    margin: 20px 0 50px 0; /* Отступы сверху и снизу */
 }
 
-/* Стили для галереи */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+/* Контейнер для всех фото */
+.photo-gallery {
+    display: flex;
+    flex-direction: column; /* Фотографии будут идти друг под другом */
+    align-items: center; /* Центрируем их */
+    gap: 40px; /* Расстояние между фото */
 }
 
-.gallery img {
+/* Карточка с фотографией (поляроидный стиль) */
+.photo-card {
+    position: relative; /* Важно для позиционирования скотча */
+    background: #fff;
+    padding: 15px 15px 60px 15px; /* Делаем белую рамку, снизу шире */
+    border-radius: 3px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 450px;
+}
+
+/* Каждую вторую карточку немного поворачиваем в другую сторону */
+.photo-card:nth-child(even) {
+    transform: rotate(4deg);
+}
+
+.photo-card:nth-child(odd) {
+    transform: rotate(-3deg);
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.05); /* При наведении выравниваем и увеличиваем */
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.photo-card img {
     width: 100%;
-    height: 200px; /* Фиксированная высота для единообразия */
-    object-fit: cover; /* Обрезает фото, чтобы оно влезло, не искажаясь */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* Убирает лишний отступ под картинкой */
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+/* РОЗОВЫЙ СКОТЧ */
+.photo-card::before,
+.photo-card::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 30px;
+    background-color: rgba(255, 105, 180, 0.6); /* Розовый полупрозрачный */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.footer {
-    margin-top: 40px;
-    font-style: italic;
-    color: #555;
+.photo-card::before {
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+}
+
+.photo-card:nth-child(3n)::after { /* Появляется на каждой 3-й фотке */
+    bottom: -10px;
+    right: -20px;
+    transform: rotate(15deg);
+}
+
+/* СЛЕДЫ ОТ ПОЦЕЛУЕВ */
+.kiss {
+    position: absolute; /* Размещаем где угодно на странице */
+    width: 80px;
+    opacity: 0.7;
+    z-index: -1; /* Прячем за основной контент */
+}
+
+.kiss1 {
+    top: 10%;
+    right: 5%;
+    transform: rotate(25deg);
+}
+
+.kiss2 {
+    top: 70%;
+    left: 10%;
+    transform: rotate(-15deg);
 }

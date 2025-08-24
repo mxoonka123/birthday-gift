@@ -3,57 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Меняем [Имя Друга] на настоящее имя -->
     <title>С Днем Рождения, [Имя Друга]!</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Подключаем два шрифта: один обычный, другой - рукописный для заголовков -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
+    <!-- Декоративные поцелуи -->
+    <img src="https://i.ibb.co/L5tJtsw/kiss.png" class="kiss kiss1" alt="Поцелуй">
+    <img src="https://i.ibb.co/L5tJtsw/kiss.png" class="kiss kiss2" alt="Поцелуй">
+
+    <div class="diary-page">
         <!-- Не забудь поменять имя здесь -->
         <h1>С Днем Рождения, <span class="highlight">[Имя Друга]</span>!</h1>
         
-        <!-- Напиши здесь свое теплое поздравление -->
-        <p class="intro-text">
-            Хочу поздравить тебя с этим замечательным днем! Желаю тебе море счастья,
-            крепкого здоровья, неиссякаемой энергии и чтобы все твои мечты сбывались.
-            Ты замечательный человек и лучший друг!
-        </p>
-
-        <h2>Наше аудио-поздравление:</h2>
-        <!-- Поддержка нескольких форматов: .ogg (основной) и .mp3 (резерв) -->
+        <!-- Аудиоплеер -->
         <audio controls>
             <source src="audio/greeting.ogg" type="audio/ogg">
             <source src="audio/greeting.mp3" type="audio/mpeg">
             Ваш браузер не поддерживает аудио.
         </audio>
 
-        <h2>Галерея теплых моментов:</h2>
-        <div class="gallery">
-            <!-- Добавь столько фото, сколько нужно, по аналогии -->
-            <img src="images/photo1.jpg" alt="Фотография с другом 1">
-            <img src="images/photo2.jpg" alt="Фотография с другом 2">
-            <img src="images/photo3.jpg" alt="Фотография с другом 3">
-            <img src="images/photo4.jpg" alt="Фотография с другом 4">
-            <!-- Можешь добавить еще <img src="images/photo5.jpg"> и т.д. -->
+        <!-- Галерея в новом стиле -->
+        <div class="photo-gallery">
+            <div class="photo-card">
+                <img src="images/photo1.jpg" alt="Фотография 1">
+            </div>
+            <div class="photo-card">
+                <img src="images/photo2.jpg" alt="Фотография 2">
+            </div>
+            <div class="photo-card">
+                <img src="images/photo3.jpg" alt="Фотография 3">
+            </div>
+            <div class="photo-card">
+                <img src="images/photo4.jpg" alt="Фотография 4">
+            </div>
+            <!-- Можно добавить ещё по шаблону выше -->
         </div>
 
-        <p class="footer">С любовью и уважением, твой друг!</p>
     </div>
-
-    <!-- Магия для конфетти -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script>
-        // Запускаем конфетти при загрузке страницы
-        confetti({
-            particleCount: 150,
-            spread: 90,
-            origin: { y: 0.6 }
-        });
-    </script>
 
 </body>
 </html>
