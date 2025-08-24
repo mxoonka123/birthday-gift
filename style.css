@@ -64,7 +64,7 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 #photo5 { grid-column: 3 / 5; grid-row: 2 / 3; transform: rotate(2deg); width: 80%; }
 
 /* Слой с украшениями (прибиты к странице) */
-.sticker, .kiss, .pointer-arrow, .signature-text { position: absolute; pointer-events: none; }
+.sticker, .kiss { position: absolute; pointer-events: none; }
 
 .slay { width: 250px; top: 5%; left: 3%; transform: rotate(-10deg); z-index: 101; }
 .hot { width: 180px; top: 85%; right: 5%; transform: rotate(8deg); z-index: 101; }
@@ -74,12 +74,25 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 .kiss-overlay1 { width: 70px; top: 40%; left: 30%; transform: rotate(20deg); opacity: 0.8; z-index: 99; }
 .kiss-overlay2 { width: 50px; top: 65%; left: 15%; transform: rotate(-25deg); opacity: 0.8; z-index: 99; }
 
-/* Новые элементы: стрелка и подпись */
-.pointer-arrow {
-    width: 180px; top: 68%; left: 62%; transform: rotate(35deg); z-index: 98;
+/* Прикрепляем стрелку и подпись к самому фото #photo5 */
+#photo5 .pointer-arrow, #photo5 .signature-text {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
 }
-.signature-text {
-    width: 230px; top: 63%; left: 54%; transform: rotate(-6deg); z-index: 98;
+
+#photo5 .signature-text {
+    width: 60%;
+    top: -12%;
+    left: -20%;
+    transform: rotate(-8deg);
+}
+
+#photo5 .pointer-arrow {
+    width: 50%;
+    top: 5%;
+    left: 20%;
+    transform: rotate(5deg) scaleX(-1);
 }
 
 @media (max-width: 768px) {
@@ -90,5 +103,5 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
         width: 90%; max-width: 350px; grid-column: auto; grid-row: auto; transform: rotate(0deg);
     }
     .slay { width: 150px; }
-    .kiss-overlay1, .kiss-overlay2, .pointer-arrow, .signature-text { display: none; }
+    .kiss-overlay1, .kiss-overlay2, #photo5 .pointer-arrow, #photo5 .signature-text { display: none; }
 }
