@@ -76,10 +76,10 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 
 /* Новые элементы: стрелка и подпись */
 .pointer-arrow {
-    width: 200px; top: 68%; left: 58%; transform: rotate(25deg); z-index: 98;
+    width: 180px; top: 68%; left: 62%; transform: rotate(35deg); z-index: 98;
 }
 .signature-text {
-    width: 250px; top: 60%; left: 45%; transform: rotate(-5deg); z-index: 98;
+    width: 230px; top: 63%; left: 54%; transform: rotate(-6deg); z-index: 98;
 }
 
 @media (max-width: 768px) {
