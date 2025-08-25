@@ -1,49 +1,73 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днем Рождения, [Имя Друга]!</title>
+    <title>happy birthday fetch girl</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 
-    <!-- СЛОЙ УКРАШЕНИЙ -->
-    <img src="decor/slay.PNG" class="sticker slay" alt="Slay">
-    <!-- HOT отсутствует локально, не добавляем -->
-    <img src="decor/kiss.PNG" class="kiss kiss-bg1" alt="Поцелуй">
-    <img src="decor/kiss.PNG" class="kiss kiss-bg2" alt="Поцелуй">
-    <img src="decor/kiss.PNG" class="kiss kiss-overlay1" alt="Поцелуй">
-    <img src="decor/kiss.PNG" class="kiss kiss-overlay2" alt="Поцелуй">
+    <!-- the welcome screen. so exclusive. -->
+    <div id="welcome-overlay">
+        <div class="welcome-box">
+            <h2>get in loser</h2>
+            <p>we're going celebrating</p>
+            <button id="play-music-button">make fetch happen</button>
+        </div>
+    </div>
 
-    <!-- НОВЫЕ ЭЛЕМЕНТЫ: СТРЕЛКА И ПОДПИСЬ ПЕРЕНЕСЕНЫ ВНУТРЬ #photo5 -->
+    <!-- our secret background track (use existing local audio) -->
+    <audio id="background-audio" loop src="audio/greeting.ogg"></audio>
+
+    <!-- decor. it's vintage. -->
+    <img src="decor/slay.PNG" class="sticker slay" alt="Slay">
+    <img src="decor/kiss.PNG" class="kiss kiss-bg1" alt="kiss">
+    <img src="decor/kiss.PNG" class="kiss kiss-bg2" alt="kiss">
+    <img src="decor/kiss.PNG" class="kiss kiss-overlay1" alt="kiss">
+    <img src="decor/kiss.PNG" class="kiss kiss-overlay2" alt="kiss">
 
     <div class="diary-page">
-        <h1>С Днем Рождения, <span class="highlight">[Имя Друга]</span>!</h1>
+        <h1>happy birthday <span class="highlight">fetch girl</span>!</h1>
         
+        <!-- your audio message. don't be shy. -->
         <audio controls>
             <source src="audio/greeting.ogg" type="audio/ogg">
             <source src="audio/greeting.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает аудио.
+            your browser is, like, so ancient.
         </audio>
 
-        <!-- Галерея-коллаж на CSS Grid (5 фото) -->
+        <!-- the burn book gallery -->
         <div class="photo-gallery">
-            <div class="photo-card" id="photo1"><img src="images/photo1.PNG" alt="Фотография 1"></div>
-            <div class="photo-card" id="photo2"><img src="images/photo2.PNG" alt="Фотография 2"></div>
-            <div class="photo-card" id="photo3"><img src="images/photo3.PNG" alt="Фотография 3"></div>
-            <div class="photo-card" id="photo4"><img src="images/photo4.PNG" alt="Фотография 4"></div>
-            <!-- ПЯТОЕ МЕДИА: видео вместо фото (стрелка и подпись внутри карточки) -->
+            <div class="photo-card" id="photo1"><img src="images/photo1.PNG" alt="burn book page 1"></div>
+            <div class="photo-card" id="photo2"><img src="images/photo2.PNG" alt="burn book page 2"></div>
+            <div class="photo-card" id="photo3"><img src="images/photo3.PNG" alt="burn book page 3"></div>
+            <div class="photo-card" id="photo4"><img src="images/photo4.PNG" alt="burn book page 4"></div>
+            
             <div class="photo-card" id="photo5">
                 <video autoplay loop muted playsinline src="video/video1.mp4"></video>
-                <img src="decor/arrow.png" class="pointer-arrow" alt="Стрелка">
-                <img src="decor/signature.PNG" class="signature-text" alt="Подпись">
+                <img src="decor/arrow.png" class="pointer-arrow" alt="arrow">
+                <img src="decor/signature.PNG" class="signature-text" alt="signature">
             </div>
         </div>
     </div>
+
+    <!-- the magic that makes it work -->
+    <script>
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        const playButton = document.getElementById('play-music-button');
+        const backgroundAudio = document.getElementById('background-audio');
+
+        playButton.addEventListener('click', () => {
+            backgroundAudio.play().catch(() => {});
+            welcomeOverlay.style.opacity = '0';
+            setTimeout(() => { welcomeOverlay.style.display = 'none'; }, 1000);
+        });
+    </script>
 
 </body>
 </html>
