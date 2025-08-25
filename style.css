@@ -48,7 +48,7 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
     width: 90%;
 }
 .photo-card:hover { z-index: 100; transform: rotate(0deg) scale(1.1) !important; box-shadow: 10px 10px 30px rgba(0,0,0,0.3); }
-.photo-card img { width: 100%; display: block; }
+.photo-card img, .photo-card video { width: 100%; display: block; }
 
 .photo-card::before {
     content: ''; position: absolute; width: 100px; height: 25px;
@@ -83,16 +83,16 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 
 #photo5 .signature-text {
     width: 60%;
-    top: -12%;
-    left: -20%;
+    top: 65%;
+    left: -40%;
     transform: rotate(-8deg);
 }
 
 #photo5 .pointer-arrow {
-    width: 50%;
-    top: 5%;
-    left: 20%;
-    transform: rotate(5deg) scaleX(-1);
+    width: 71%;
+    top: 22%;
+    left: -22%;
+    transform: rotate(5deg) scaleX(1);
 }
 
 @media (max-width: 768px) {
