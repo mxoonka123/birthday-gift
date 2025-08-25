@@ -173,9 +173,9 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 
 /* Pink frame animation */
 .video-box {
-    position: relative; background: #d63384; padding: 15px; /* slightly smaller padding */
+    position: relative; background: #d63384; padding: 12px; /* smaller padding */
     box-shadow: 0 10px 40px rgba(255, 105, 180, 0.5);
-    border: 5px solid #fff; width: 85%; max-width: 700px; /* make the video box smaller */
+    border: 4px solid #fff; width: 80%; max-width: 650px; /* further reduce size */
     border-radius: 15px;
     transform: scale(0.7);
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
