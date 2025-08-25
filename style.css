@@ -10,6 +10,13 @@ body {
     overflow-x: hidden;
 }
 
+/* wrapper that anchors stickers and rumors */
+.burn-book-wrapper {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .diary-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -61,10 +68,22 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 /* Пятое фото, к которому будет вести стрелка */
 #photo5 { grid-column: 3 / 5; grid-row: 2 / 3; transform: rotate(2deg); width: 80%; }
 
-/* all the little decor pieces */
-.kiss { position: absolute; pointer-events: none; z-index: 1; opacity: 0.7; }
-.kiss-bg1 { width: 80px; top: 90%; left: 10%; transform: rotate(-15deg); }
-.kiss-bg2 { width: 60px; top: 20%; right: 12%; transform: rotate(25deg); }
+/* stickers and rumors anchored inside wrapper */
+.sticker, .kiss, .rumors-wall span { position: absolute; pointer-events: none; }
+.slay { width: 300px; top: 50px; left: 50px; transform: rotate(-10deg); z-index: 2; }
+.kiss1 { width: 120px; top: 150px; right: 80px; transform: rotate(15deg); opacity: 0.8; z-index: 2; }
+.kiss2 { width: 80px; bottom: 50px; left: 200px; transform: rotate(-25deg); opacity: 0.7; z-index: 2; }
+
+/* rumors styling */
+.rumors-wall span {
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 150, 0.5);
+}
+#rumor1 { top: 300px; right: 50px; transform: rotate(8deg); z-index: 1; }
+#rumor2 { top: 500px; left: 80px; transform: rotate(-5deg); z-index: 1; }
+#rumor3 { top: 80%; right: 100px; transform: rotate(6deg); z-index: 1; }
 
 /* Прикрепляем стрелку и подпись к самому фото #photo5 */
 #photo5 .pointer-arrow, #photo5 .signature-text {
@@ -98,6 +117,15 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
     .photo-card:nth-child(even) { transform: rotate(4deg); }
     .photo-card:nth-child(odd) { transform: rotate(-3deg); }
     #photo5 .pointer-arrow, #photo5 .signature-text { display: none; }
+
+    /* rumors become stacked and readable on mobile */
+    .rumors-wall { position: static; margin: 30px 20px; text-align: center; }
+    .rumors-wall span { position: static; display: block; transform: none; margin-bottom: 20px; font-size: 1.5em; }
+
+    /* smaller, tidy stickers on mobile */
+    .slay { width: 120px; top: 10px; left: 10px; }
+    .kiss1 { width: 60px; top: 70px; right: 20px; }
+    .kiss2 { display: none; }
 }
 
 /* welcome screen styles */
