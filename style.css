@@ -145,3 +145,55 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 #play-music-button:hover { transform: scale(1.1); box-shadow: 0 8px 25px rgba(214, 51, 132, 0.6); }
+
+/* ================================== */
+/*        FINAL SURPRISE STYLES       */
+/* ================================== */
+
+/* Button at the end of the page */
+#final-burn-button {
+    display: block;
+    margin: 80px auto 40px auto;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+#final-burn-button:hover { transform: scale(1.1); }
+
+/* Video overlay */
+#final-video-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+}
+#final-video-overlay.visible { opacity: 1; pointer-events: all; }
+
+/* Pink frame animation */
+.video-box {
+    position: relative; background: #d63384; padding: 20px; border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.5);
+    border: 5px solid #fff; width: 90%; max-width: 800px;
+    transform: scale(0.7);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#final-video-overlay.visible .video-box { transform: scale(1); }
+
+#final-video { width: 100%; display: block; border-radius: 5px; }
+
+/* Close button */
+#close-video-button {
+    position: absolute; top: -20px; right: -20px;
+    width: 40px; height: 40px; background: #fff; color: #d63384;
+    border-radius: 50%; text-align: center; line-height: 40px; font-size: 24px;
+    text-decoration: none; font-family: sans-serif; font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    #final-burn-button { width: 250px; margin-top: 50px; }
+    .video-box { padding: 10px; border-width: 3px; }
+    #close-video-button { top: -15px; right: -15px; width: 30px; height: 30px; line-height: 30px; font-size: 20px; }
+}

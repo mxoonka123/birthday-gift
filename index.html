@@ -11,6 +11,14 @@
 </head>
 <body>
 
+    <!-- Final surprise video overlay -->
+    <div id="final-video-overlay">
+        <div class="video-box">
+            <a href="#" id="close-video-button">&times;</a>
+            <video id="final-video" src="video/final-video.MP4" controls></video>
+        </div>
+    </div>
+
     <div class="burn-book-wrapper">
 
         <!-- Экран-приветствие -->
@@ -40,7 +48,7 @@
         <div class="diary-page">
             <h1>happy birthday <span class="highlight">fetch girl</span>!</h1>
             
-            <audio controls>
+            <audio id="greeting-audio" controls>
                 <source src="audio/greeting.ogg" type="audio/ogg">
                 <source src="audio/greeting.mp3" type="audio/mpeg">
                 your browser is, like, so ancient.
@@ -59,6 +67,8 @@
             </div>
         </div>
 
+        <!-- Final burn button at the end -->
+        <img src="decor/final-burn-button.PNG" id="final-burn-button" alt="The Final Burn">
     </div>
 
     <script>
@@ -71,6 +81,31 @@
             welcomeOverlay.style.opacity = '0';
             setTimeout(() => { welcomeOverlay.style.display = 'none'; }, 1000);
         });
+
+        // Final surprise logic
+        const finalBurnButton = document.getElementById('final-burn-button');
+        const videoOverlay = document.getElementById('final-video-overlay');
+        const finalVideo = document.getElementById('final-video');
+        const greetingAudio = document.getElementById('greeting-audio');
+        const closeVideoButton = document.getElementById('close-video-button');
+
+        if (finalBurnButton) {
+            finalBurnButton.addEventListener('click', () => {
+                try { backgroundAudio.pause(); } catch (e) {}
+                videoOverlay.classList.add('visible');
+                try { finalVideo.play(); } catch (e) {}
+                try { greetingAudio.play(); } catch (e) {}
+            });
+        }
+
+        if (closeVideoButton) {
+            closeVideoButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                videoOverlay.classList.remove('visible');
+                try { finalVideo.pause(); finalVideo.currentTime = 0; } catch (e) {}
+                try { greetingAudio.pause(); greetingAudio.currentTime = 0; } catch (e) {}
+            });
+        }
     </script>
 
 </body>
