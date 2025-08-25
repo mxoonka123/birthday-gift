@@ -153,7 +153,7 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 /* Button at the end of the page */
 #final-burn-button {
     display: block;
-    margin: 80px auto 40px auto;
+    margin: 150px auto 40px auto; /* more space before the button */
     width: 300px;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -173,9 +173,10 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
 
 /* Pink frame animation */
 .video-box {
-    position: relative; background: #d63384; padding: 20px; border-radius: 15px;
+    position: relative; background: #d63384; padding: 15px; /* slightly smaller padding */
     box-shadow: 0 10px 40px rgba(255, 105, 180, 0.5);
-    border: 5px solid #fff; width: 90%; max-width: 800px;
+    border: 5px solid #fff; width: 85%; max-width: 700px; /* make the video box smaller */
+    border-radius: 15px;
     transform: scale(0.7);
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -197,3 +198,18 @@ audio { width: 100%; max-width: 400px; margin: 20px 0 60px 0; }
     .video-box { padding: 10px; border-width: 3px; }
     #close-video-button { top: -15px; right: -15px; width: 30px; height: 30px; line-height: 30px; font-size: 20px; }
 }
+
+/* Back button inside overlay */
+#back-button {
+    display: block;
+    width: 50%;
+    margin: 15px auto 0 auto;
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif; font-size: 1em; font-weight: bold;
+    color: #d63384; background: #fff; border: none; border-radius: 50px;
+    cursor: pointer; transition: transform 0.2s ease;
+}
+#back-button:hover { transform: scale(1.05); }
+
+/* Override rumor3 position as requested */
+#rumor3 { top: 79%; right: 73px; transform: rotate(6deg); z-index: 1; }

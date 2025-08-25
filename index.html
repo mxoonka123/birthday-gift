@@ -15,7 +15,10 @@
     <div id="final-video-overlay">
         <div class="video-box">
             <a href="#" id="close-video-button">&times;</a>
-            <video id="final-video" src="video/final-video.MP4" controls></video>
+            <!-- loop the final video for dramatic effect -->
+            <video id="final-video" src="video/final-video.MP4" loop controls></video>
+            <!-- back button -->
+            <button id="back-button">back</button>
         </div>
     </div>
 
@@ -48,7 +51,8 @@
         <div class="diary-page">
             <h1>happy birthday <span class="highlight">fetch girl</span>!</h1>
             
-            <audio id="greeting-audio" controls>
+            <!-- hidden player: no controls, will be played programmatically -->
+            <audio id="greeting-audio">
                 <source src="audio/greeting.ogg" type="audio/ogg">
                 <source src="audio/greeting.mp3" type="audio/mpeg">
                 your browser is, like, so ancient.
@@ -88,6 +92,7 @@
         const finalVideo = document.getElementById('final-video');
         const greetingAudio = document.getElementById('greeting-audio');
         const closeVideoButton = document.getElementById('close-video-button');
+        const backButton = document.getElementById('back-button');
 
         if (finalBurnButton) {
             finalBurnButton.addEventListener('click', () => {
@@ -98,14 +103,16 @@
             });
         }
 
-        if (closeVideoButton) {
-            closeVideoButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                videoOverlay.classList.remove('visible');
-                try { finalVideo.pause(); finalVideo.currentTime = 0; } catch (e) {}
-                try { greetingAudio.pause(); greetingAudio.currentTime = 0; } catch (e) {}
-            });
+        function closeFinalVideo(e) {
+            if (e) e.preventDefault();
+            videoOverlay.classList.remove('visible');
+            try { finalVideo.pause(); finalVideo.currentTime = 0; } catch (err) {}
+            try { greetingAudio.pause(); greetingAudio.currentTime = 0; } catch (err) {}
+            try { backgroundAudio.play(); } catch (err) {}
         }
+
+        if (closeVideoButton) closeVideoButton.addEventListener('click', closeFinalVideo);
+        if (backButton) backButton.addEventListener('click', closeFinalVideo);
     </script>
 
 </body>
